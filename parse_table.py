@@ -1,18 +1,25 @@
+import re
 
-dump_test = True
+dump_test = False
+
+def prepare_string(s):
+    return s.strip()
+
+def prepare_list(s, delim):
+    return [x.strip() for x in list(filter(None, s.split(delim)))]
 
 def prepare_comp_info(cells):
     result_data = dict()
 
-    result_data["description"] = cells[2].text
-    result_data["significance"] = cells[3].text
+    result_data["description"] = prepare_string(cells[2].text)
+    result_data["significance"] = prepare_string(cells[3].text)
 
-    result_data["should_know"] = cells[4].text
-    result_data["should_able"] = cells[5].text
-    result_data["should_master"] = cells[6].text
+    result_data["should_know"] = prepare_string(cells[4].text)
+    result_data["should_able"] = prepare_string(cells[5].text)
+    result_data["should_master"] = prepare_string(cells[6].text)
     
-    result_data["disciplines"] = [x.strip() for x in list(filter(None, cells[7].text.split(',')))]
-    result_data["methods"] = cells[8].text
+    result_data["disciplines"] = prepare_list(cells[7].text, ',')
+    result_data["methods"] = prepare_string(cells[8].text)
 
     return result_data
 

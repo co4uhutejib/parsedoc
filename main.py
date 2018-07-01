@@ -16,3 +16,4 @@ data = prepare_data(args.doc, u"Вид профессиональной деят
 assert data != None
 
 
+# TODO
