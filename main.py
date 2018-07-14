@@ -6,8 +6,8 @@ import argparse
 
 from parse_table import prepare_data
 from competence_description import print_competence_description
-# from competence_description import print_competence_description
-# from competence_description import print_competence_description
+from find_discipline import print_find_discipline
+from get_methods import print_get_methods
 
 parser = argparse.ArgumentParser(description='Process doc table.')
 parser.add_argument('doc', help='input file')
@@ -49,9 +49,7 @@ if args.which == 'competence':
     print_competence_description(data, args.NAME)
 
 if args.which == 'discipline':
-    # TODO
-    print('find discipline: ' + args.NAME)
+    print_find_discipline(data, args.NAME)
 
 if args.which == 'methods':
-    #TODO
-    print('find methods: ' + args.COMPETENCE)
+    print_get_methods(data, args.COMPETENCE)
