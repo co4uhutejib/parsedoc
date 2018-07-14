@@ -1,13 +1,7 @@
 
 # -*- coding: utf-8 -*-
 
-
-def find_competence(data, competence):
-    for prof,prof_record in data.items():
-        for comp, comp_record in prof_record.items():
-            if competence == comp:
-                return comp_record
-    return None
+from utils import *
 
 def print_competence_description(data, competence):
     comp_record = find_competence(data, competence)
