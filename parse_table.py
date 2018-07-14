@@ -25,7 +25,8 @@ def prepare_comp_info(cells):
 
 
 def prepare_data(path_to_doc, first_cell):
-    print("---> Prepare data from: " + path_to_doc)
+    if dump_test:
+        print("---> Prepare data from: " + path_to_doc)
     from docx import Document
 
     document = Document(path_to_doc)
